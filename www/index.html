@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Title</title>
+  <style></style>
+</head>
+<body>
+<div>
+  啦啦啦
+</div>
+<script src="/xuni/bundle.js"></script>
+<script>
+  // 模板字符串
+  var templateStr = `
+            <div>
+                <ul>
+                    {{#students}}
+                    <li class="myli">
+                        学生{{name}}的爱好是
+                        <ol>
+                            {{#hobbies}}
+                            <li>{{.}}</li>
+                            {{/hobbies}}
+                        </ol>
+                    </li>
+                    {{/students}}
+                </ul>
+            </div>
+        `;
+
+  // 数据
+  var data = {
+    students: [
+      { 'name': '小明', 'hobbies': ['编程', '游泳'] },
+      { 'name': '小红', 'hobbies': ['看书', '弹琴', '画画'] },
+      { 'name': '小强', 'hobbies': ['锻炼'] }
+    ]
+  };
+  // let templateStr  = `<div>今天很{{mood}}啊，因为今天她{{smile}}了</div>`;
+  WWT_Template.render(templateStr, data);
+</script>
+</body>
+</html>
